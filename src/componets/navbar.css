@@ -1,0 +1,81 @@
+/* Main navbar container */
+.navsection {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #2874f0;
+  padding: 12px 40px;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Logo / Title */
+.title h3 {
+  font-size: 22px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+/* Search box container */
+.search {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+/* Search input */
+.search input {
+  width: 60%;
+  padding: 8px 15px;
+  border-radius: 4px;
+  border: none;
+  outline: no
+}
+#sign{
+  background-color: rgb(255, 255, 255);
+  font-size: small;
+   
+   padding: 4px;
+   border-radius: 10px;
+
+}
+.cart{
+display: inline-flex;
+height: 20px;
+width: 20px;
+margin-right: -5%;
+}
+.category {
+  background-color: #ffffff;
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Remove default list style */
+.category ul {
+  list-style: none;
+  display: flex;              /* Makes items horizontal */
+  justify-content: center;    /* Center items */
+  gap: 40px;                  /* Space between items */
+  margin: 0;
+  padding: 0;
+}
+
+/* Each item */
+.category li {
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 8px 12px;
+  transition: color 0.3s ease, border-bottom 0.3s ease;
+}
+
+/* Hover effect */
+.category li:hover {
+  color: #2874f0;
+  border-bottom: 2px solid #2874f0;
+}
+

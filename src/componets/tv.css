@@ -1,0 +1,49 @@
+.electronics {
+  padding: 30px;
+  background-color: #f4f6f9;
+}
+
+.electronics-title {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 25px;
+}
+
+.electronics-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  justify-content: center;
+}
+
+.electronics-card {
+  width: 260px;
+  background: white;
+  padding: 15px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: 0.3s;
+}
+
+.electronics-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+}
+
+.electronics-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: contain;
+  margin-bottom: 12px;
+}
+
+.price {
+  font-weight: bold;
+  color: #2e7d32;
+}
+
+.rating {
+  font-size: 14px;
+  color: #555;
+}
