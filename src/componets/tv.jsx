@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./tv.css";
+import { Link } from "react-router-dom";
 
 const Electronics = () => {
 
@@ -50,7 +51,7 @@ const Electronics = () => {
       <div className="electronics-grid">
         {products.map((item) => (
           <div key={item.id} className="electronics-card">
-            <img src={item.image} alt={item.title} />
+           <Link to={`/electronics/${item.id}`}>  <img src={item.image} alt={item.title} /></Link>
             <h3>{item.title}</h3>
             <p className="price">₹ {item.price}</p>
             <button>Aadd to cart</button>

@@ -51,7 +51,8 @@ margin-right: -5%;
 .category {
   background-color: #ffffff;
   padding: 10px 0;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #ffffff;
+  position:sticky;
 }
 
 /* Remove default list style */
@@ -70,12 +71,15 @@ margin-right: -5%;
   font-weight: 500;
   cursor: pointer;
   padding: 8px 12px;
-  transition: color 0.3s ease, border-bottom 0.3s ease;
+  transition: color 0.3s ease;
+  color: rgb(15, 15, 14); 
+  border: none;
 }
 
 /* Hover effect */
 .category li:hover {
   color: #2874f0;
-  border-bottom: 2px solid #2874f0;
+  transform: scale();
+ 
 }
 

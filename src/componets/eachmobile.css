@@ -1,0 +1,135 @@
+/* Checkbox section */
+.select {
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  margin: 20px;
+}
+
+.select h3 {
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.select label {
+  display: block;
+  margin: 10px 0;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 8px;
+  transition: background-color 0.2s;
+}
+
+.select label:hover {
+  background-color: #e0e0e0;
+  border-radius: 4px;
+}
+
+.select input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  cursor: pointer;
+  accent-color: #007bff;  /* Blue checkmark */
+}
+
+/* Main product display */
+.ind-img {
+  display: flex;
+  gap: 40px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Left side - Images */
+.left {
+  flex: 1;
+}
+
+.left h4 {
+  font-size: 18px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.main-img {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.small-imgs {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.small-imgs img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 4px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: border 0.3s;
+}
+
+.small-imgs img:hover {
+  border: 2px solid #007bff;
+}
+
+/* Right side - Details */
+.right {
+  flex: 1;
+}
+
+.right h2 {
+  font-size: 28px;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.price {
+  font-size: 24px;
+  color: green;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.desc {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #666;
+  margin: 20px 0;
+}
+
+.cart-btn {
+  background-color: #ff9900;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 20px;
+}
+
+.cart-btn:hover {
+  background-color: #e68a00;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .ind-img {
+    flex-direction: column;
+  }
+
+  .main-img {
+    max-width: 100%;
+  }
+}

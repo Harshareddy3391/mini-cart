@@ -1,5 +1,6 @@
-import React, { useEffect, useReducer } from 'react';
+import React, { useEffect, useReducer, useState } from 'react';
 import "./mobile.css";
+import { Link } from "react-router-dom";
 
 const initialState = {
   loading: true,
@@ -29,9 +30,10 @@ const reducer = (state, action) => {
   }
 };
 
-const Mobile = () => {
+export const Mobile = () => {
 
   const [state, dispatch] = useReducer(reducer, initialState);
+  const [brand, setBrand] = useState("FILTER");
 
   const murl = "https://dummyjson.com/products/category/smartphones";
 
@@ -40,11 +42,6 @@ const Mobile = () => {
     const fetchMobiles = async () => {
       try {
         const response = await fetch(murl);
-
-        if (!response.ok) {
-          throw new Error("Failed to fetch mobiles");
-        }
-
         const data = await response.json();
 
         dispatch({
@@ -53,12 +50,10 @@ const Mobile = () => {
         });
 
       } catch (error) {
-
         dispatch({
           type: "FETCH_ERROR",
           payload: error.message
         });
-
       }
     };
 
@@ -66,36 +61,51 @@ const Mobile = () => {
 
   }, []);
 
-  // Loading state
-  if (state.loading) {
-    return <h2>Loading mobiles...</h2>;
-  }
+  if (state.loading) return <h2>Loading mobiles...</h2>;
+  if (state.error) return <h2>Error: {state.error}</h2>;
 
-  // Error state
-  if (state.error) {
-    return <h2>Error: {state.error}</h2>;
-  }
+  
+  const brands = ["FILTER", ...new Set(state.mobiles.map(item => item.brand))];
+
+  
+  const filteredMobiles =
+    brand === "FILTER"
+      ? state.mobiles
+      : state.mobiles.filter(item => item.brand === brand);
 
   return (
     <div className='mobile'>
+
       <h1 className='mobile-name'>Mobiles</h1>
+
+      
+      <div className="filter-section">
+        <select value={brand} onChange={(e) => setBrand(e.target.value)}>
+          {brands.map((b, index) => (
+            <option key={index} value={b}>
+              {b}
+            </option>
+          ))}
+        </select>
+      </div>
 
       <div className="mobile-bar">
 
-        {state.mobiles.slice(0, 8).map((Eachmobile) => (
+        {filteredMobiles.map((Eachmobile) => (
           <div key={Eachmobile.id} className="each-mobile">
 
-            <img
-              src={Eachmobile.thumbnail}
-              alt={Eachmobile.title}
-            />
+            <Link to={`/mobiles/${Eachmobile.id}`}>
+              <img
+                src={Eachmobile.thumbnail}
+                alt={Eachmobile.title}
+              />
+            </Link>
 
             <div className='info'>
               <h3>{Eachmobile.title}</h3>
-              <h5>{Eachmobile.category}</h5>
-               <p className="price">₹ {Eachmobile.price}</p>
-
-               <button>Add to cart</button>
+              <h5>{Eachmobile.brand}</h5>
+              <p className="price">₹ {Eachmobile.price}</p>
+              <button>Add to cart</button>
             </div>
 
           </div>
@@ -105,5 +115,3 @@ const Mobile = () => {
     </div>
   );
 };
-
-export default Mobile;

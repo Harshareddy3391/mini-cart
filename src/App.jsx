@@ -3,10 +3,18 @@
  import "./App.css";
  import Landingpage from './pages/landingpage';
 import Registration from './pages/registration';
-import Mobile from './componets/mobile';
+import {Mobile} from './componets/mobile';
 import Laptops from './componets/laptop';
 import Electronics from './componets/tv';
-import SmartWatch from './componets/waches'
+import SmartWatch from './componets/waches';
+import Login from './pages/login';
+import Eachmobile from './componets/eachmobile';
+import Eachlaptop from "./componets/eachlaptop"
+import Eachwach from './componets/eachwach';
+import Eachelectronic from './componets/eachelectronic';
+import Eachbuds from "./componets/eachbuds"
+
+
  
  const App = () => {
    return (
@@ -14,11 +22,19 @@ import SmartWatch from './componets/waches'
       
        <Routes>
          <Route path="/" element = {<Landingpage/>}/>
-         <Route path="/reg" element = {<Registration/>}/>
+         <Route path="/register" element = {<Registration/>}/>
          <Route path="/mobiles" element = {<Mobile/>}/>
          <Route path="/laptops" element = {<Laptops/>}/>
          <Route path="/electronis" element = {<Electronics/>}/>
          <Route path="/waches" element = {<SmartWatch/>}/>
+         <Route path="/login" element = {<Login/>}/>
+           <Route path="/mobiles/:id" element={<Eachmobile/>}/>
+           <Route path="/laptops/:id" element={<Eachlaptop/>}/>
+           <Route path="/smartwatch/:id" element={<Eachwach/>}/> 
+           <Route path="/electronics/:id" element={<Eachelectronic/>}/>
+           <Route path="/earbuds/:id" element={<Eachbuds/>}/>
+          
+
        </Routes>
        
        

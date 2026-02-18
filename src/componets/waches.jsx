@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./watches.css"
+import { Link } from "react-router-dom";
 
 const SmartWatch = () => {
 
@@ -25,7 +26,7 @@ const SmartWatch = () => {
     <div className="watch-bar">
       {watch.slice(0,8).map((item) => (
         <div key={item.id} className="each-watch">
-          <img src={item.thumbnail} alt={item.title} />
+         <Link to={`/smartwatch/${item.id}`}>  <img src={item.thumbnail} alt={item.title} /></Link>
           <pre className="info">
             <h3>{item.title}</h3>
             <p>₹ {item.price}</p>

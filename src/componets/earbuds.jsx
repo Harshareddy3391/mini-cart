@@ -1,5 +1,6 @@
 import React, { useEffect, useReducer } from "react";
 import "./earbuds.css";
+import { Link } from "react-router-dom";
 
 const initialState = {
   loading: true,
@@ -83,7 +84,10 @@ const Earbuds = () => {
       <div className="earbuds-grid">
         {state.earbuds.map((item) => (
           <div key={item.id} className="earbuds-card">
+            <Link to={`/earbuds/${item.id} `}>
             <img src={item.thumbnail} alt={item.title} />
+            </Link>
+             
             <h3>{item.title}</h3>
             <p className="price">₹ {item.price}</p>
             <button>Add to cart</button>

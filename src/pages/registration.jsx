@@ -1,13 +1,22 @@
 import React, { useState } from "react";
 import "./registration.css";
+import {Link} from "react-router-dom";
 
 const Registration = () => {
 
   const [phone, setPhone] = useState("");
 
-  const handleOtp = () => {
-    alert("OTP Sent to " + phone);
-  };
+ const handleOtp = () => {
+  const phoneRegex = /^[6-9]\d{9}$/;
+
+  if (!phoneRegex.test(phone)) {
+    alert("Invalid phone number");
+    return;
+  }
+
+  alert("OTP Sent to " + phone);
+};
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -26,16 +35,20 @@ const Registration = () => {
         />
 
         <div className="phone-section">
-          <input 
-            type="tel" 
+         <input 
+           type="tel" 
             placeholder="Phone Number"
             value={phone}
-            onChange={(e) => setPhone(e.target.value)}
-            required
-          />
+            pattern="^[6-9][0-9]{9}$"
+             title="Enter valid 10-digit Indian phone number"
+              onChange={(e) => setPhone(e.target.value)}
+                required
+/>
           <button 
             type="button" 
             className="otp-btn"
+            required
+            
             onClick={handleOtp}
           >
             Send OTP
@@ -53,7 +66,7 @@ const Registration = () => {
         </button>
 
         <p className="login-text">
-          If you have account? <span>Login</span>
+          If you have account? <Link to="/login"><span>Login</span></Link>
         </p>
 
       </form>

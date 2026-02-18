@@ -1,5 +1,5 @@
 import React from 'react'
-import Mobile from './mobile';
+import {Mobile} from './mobile';
 import Laptopdata from './laptop';
 import SmartWatch  from "./waches";
 //import TV from"./tv";

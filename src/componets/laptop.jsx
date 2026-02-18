@@ -66,7 +66,8 @@ export default Laptops;*/
 
  
 import React, { useEffect, useReducer } from "react";
-import "./laptop.css"
+import "./laptop.css";
+import {Link} from "react-router-dom"
 
 const initialState = {
   loading: true,
@@ -147,11 +148,15 @@ const Laptops = () => {
 
       {state.laptops.slice(0,4).map((laptop) => (
         <div key={laptop.id} className="each-laptop">
-          <img
+          
+          <Link to={ `/laptops/${laptop.id}`}>
+           <img
             src={laptop.thumbnail}
             alt={laptop.title}
             width="200"
           />
+          
+          </Link>
           <pre className="info">
              <h3>{laptop.title}</h3>
           <p>₹ {laptop.price}</p>
