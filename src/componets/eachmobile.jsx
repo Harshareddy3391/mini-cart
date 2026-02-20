@@ -1,12 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState , useContext} from "react";
 import "./eachmobile.css"
 import { useParams } from "react-router-dom";
-import Navbar from "./navbar"
+import Navbar from "./navbar";
+import { CartContext } from "./CartContext";
 
 const Eachmobile = () => {
 
   const { id } = useParams();
   const [mobile, setMobile] = useState(null);
+   let {addToCart}=useContext(CartContext); 
    
  
 
@@ -54,7 +56,7 @@ const Eachmobile = () => {
           <p className="price">₹ {mobile.price}</p>
           <p style={{color:"brown"}}>⭐ {mobile.rating}</p>
           <p className="desc">{mobile.description}</p>
-          <button className="cart-btn">Add to cart</button>
+          <button   onClick={() => addToCart(mobile)}>ADD TO CART</button>
         </div>
       </div>
 

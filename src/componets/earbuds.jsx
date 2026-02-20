@@ -1,6 +1,7 @@
-import React, { useEffect, useReducer } from "react";
+import React, { useEffect, useReducer, useState,useContext} from "react";
 import "./earbuds.css";
 import { Link } from "react-router-dom";
+import { CartContext } from "./CartContext";
 
 const initialState = {
   loading: true,
@@ -33,6 +34,8 @@ const reducer = (state, action) => {
 const Earbuds = () => {
 
   const [state, dispatch] = useReducer(reducer, initialState);
+  const [brand, setBrand] = useState("FILTER");
+   let {addToCart}=useContext(CartContext);
 
   const url = "https://dummyjson.com/products/search?q=earbuds";
 
@@ -67,33 +70,48 @@ const Earbuds = () => {
 
   }, []);
 
-  // Loading
-  if (state.loading) {
-    return <h2>Loading Earbuds...</h2>;
-  }
+  if (state.loading) return <h2>Loading Earbuds...</h2>;
+  if (state.error) return <h2>Error: {state.error}</h2>;
 
-  // Error
-  if (state.error) {
-    return <h2>Error: {state.error}</h2>;
-  }
+  // 🔥 Unique brands
+  const brands = ["FILTER", ...new Set(state.earbuds.map(item => item.brand))];
+
+  // 🔥 Filter logic
+  const filteredEarbuds =
+    brand === "FILTER"
+      ? state.earbuds
+      : state.earbuds.filter(item => item.brand === brand);
 
   return (
     <div className="earbuds">
+
       <h1 className="earbuds-title">Earbuds</h1>
 
+      {/* 🔥 Brand Dropdown */}
+      <div className="filter-section">
+        <select value={brand} onChange={(e) => setBrand(e.target.value)}>
+          {brands.map((b, index) => (
+            <option key={index} value={b}>
+              {b}
+            </option>
+          ))}
+        </select>
+      </div>
+
       <div className="earbuds-grid">
-        {state.earbuds.map((item) => (
+        {filteredEarbuds.map((item) => (
           <div key={item.id} className="earbuds-card">
-            <Link to={`/earbuds/${item.id} `}>
-            <img src={item.thumbnail} alt={item.title} />
+            <Link to={`/earbuds/${item.id}`}>
+              <img src={item.thumbnail} alt={item.title} />
             </Link>
-             
+
             <h3>{item.title}</h3>
             <p className="price">₹ {item.price}</p>
-            <button>Add to cart</button>
+            <button onClick={() => addToCart(item)}>Add to cart</button>
           </div>
         ))}
       </div>
+
     </div>
   );
 };

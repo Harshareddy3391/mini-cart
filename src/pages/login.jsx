@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./login.css";
+import Navbar from "../componets/navbar";
 
 const Login = () => {
 
@@ -18,7 +19,10 @@ const Login = () => {
   };
 
   return (
-    <div className="login-container">
+    <div>
+      <div><Navbar/></div>
+       <div className="login-container">
+      
       <form className="login-form">
         <h2>Login</h2>
 
@@ -45,6 +49,8 @@ const Login = () => {
 
       </form>
     </div>
+    </div>
+    
   );
 };
 

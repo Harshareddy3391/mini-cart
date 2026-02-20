@@ -1,12 +1,14 @@
-import React, {useState,useEffect} from 'react';
+import React, {useState,useEffect, useContext} from 'react';
 import { useParams } from 'react-router-dom';
 import "./eachmobile.css";
 import  Navbar from "./navbar"
+import { CartContext } from './CartContext';
  
 const  Eachwach = () => {
     let {id}=useParams()
     let [wach,setwach]=useState(null);
-    console.log(wach)
+    let {addToCart}=useContext(CartContext);
+   
 
 
     useEffect(()=>{
@@ -45,6 +47,8 @@ if(!wach){
 
                 <p style={{color:"brown"}}>{wach.rating}</p>
                 <p>{wach.description}</p>
+                 < button onClick={() => addToCart(wach)}>ADD TO CART</button>
+
             </div>
 
 

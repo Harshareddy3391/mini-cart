@@ -1,12 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,useContext } from "react";
 import "./eachmobile.css";
 import { useParams } from "react-router-dom";
 import  Navbar from "./navbar"
+import { CartContext } from "./CartContext";
 
 const Eachlaptop = () => {
 
   let { id } = useParams();
   let [lap, setlap] = useState(null);
+   let {addToCart}=useContext(CartContext);
 
   useEffect(() => {
     fetch(`https://dummyjson.com/products/${id}`)
@@ -44,7 +46,7 @@ const Eachlaptop = () => {
           <p style={{color:"green"}}>₹ {lap.price}</p>
             <p style={{color:"brown"}}>{lap.rating}</p>
           <p>{lap.description}</p>
-          <button>Ad to cart</button>
+          <button onClick={() => addToCart(lap)}>ADD TO CART</button>
         </div>
        
     </div>

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./registration.css";
 import {Link} from "react-router-dom";
+import Navbar from "../componets/navbar";
 
 const Registration = () => {
 
@@ -24,7 +25,13 @@ const Registration = () => {
   };
 
   return (
-    <div className="register-container">
+    <div>
+      <div>
+        <Navbar/>
+      </div>
+      
+      
+       <div className="register-container">
       <form className="register-form" onSubmit={handleSubmit}>
         <h2>Create Account</h2>
 
@@ -70,7 +77,8 @@ const Registration = () => {
         </p>
 
       </form>
-    </div>
+    </div></div>
+    
   );
 };
 

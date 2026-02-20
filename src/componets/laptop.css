@@ -1,62 +1,77 @@
 /* Main container */
 .laptop {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 25px;
-  justify-content: center;
   padding: 30px;
-  background-color: #f5f5f5;
+  background-color: #f4f6f9;
 }
 
 /* Heading */
 .laptop-name {
-  width: 100%;
   text-align: center;
   font-size: 32px;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
   color: #333;
+}
+
+/* Grid container */
+.laptop-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  justify-content: center;
 }
 
 /* Each laptop card */
 .each-laptop {
+  width: 240px;
   background: #ffffff;
-  width: 260px;
   padding: 15px;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* Hover effect */
 .each-laptop:hover {
   transform: translateY(-8px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
 }
 
 /* Image styling */
 .each-laptop img {
   width: 100%;
-  height: 180px;
+  height: 170px;
   object-fit: contain;
+  margin-bottom: 12px;
+}
+
+/* Info */
+.info {
+  margin-top: 10px;
+}
+
+.info h3 {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.info p {
+  color: green;
+  font-weight: bold;
   margin-bottom: 10px;
 }
 
-/* Laptop title */
-.each-laptop h3 {
-  font-size: 18px;
-  margin: 10px 0;
-  color: #222;
+/* Button same like mobile */
+button {
+  background-color: rgb(255, 119, 0);
+  font-size: 14px;
+  padding: 6px 12px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  color: white;
 }
 
-/* Price */
-.each-laptop p {
-  font-size: 16px;
-  font-weight: bold;
-  color: #2e7d32;
-}
-
-/* Optional info class */
-.info {
-  white-space: normal;
+button:hover {
+  opacity: 0.9;
 }

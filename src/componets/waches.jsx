@@ -1,10 +1,13 @@
-import React, { useEffect, useState } from "react";
-import "./watches.css"
+import React, { useEffect, useState,useContext } from "react";
+import "./watches.css";
 import { Link } from "react-router-dom";
+import { CartContext } from "./CartContext";
 
 const SmartWatch = () => {
 
   const [watch, setWatch] = useState([]);
+  const [brand, setBrand] = useState("FILTER");
+  let {addToCart}=useContext(CartContext);
 
   const url = "https://dummyjson.com/products/category/mens-watches";
 
@@ -18,27 +21,53 @@ const SmartWatch = () => {
     fetchWatch();
   }, []);
 
+ 
+  let brandnames = ["FILTER", ...new Set(watch.map(item => item.brand))];
+
   
-    return (
-  <div className="watch">
-    <h1 className="watch-name">Smart Watches</h1>
+  let filterwatch =
+    brand === "FILTER"
+      ? watch
+      : watch.filter((wdata) => wdata.brand === brand);
 
-    <div className="watch-bar">
-      {watch.slice(0,8).map((item) => (
-        <div key={item.id} className="each-watch">
-         <Link to={`/smartwatch/${item.id}`}>  <img src={item.thumbnail} alt={item.title} /></Link>
-          <pre className="info">
-            <h3>{item.title}</h3>
-            <p>₹ {item.price}</p>
-            <button>Add to cart   </button>
-          </pre>
-        </div>
-      ))}
+  return (
+    <div className="watch">
+
+      <h1 className="watch-name">Smart Watches</h1>
+
+      {/* 🔥 Brand Dropdown */}
+      <div className="filter-section">
+        <select value={brand} onChange={(e) => setBrand(e.target.value)}>
+          {brandnames.map((b, index) => (
+            <option key={index} value={b}>
+              {b}
+            </option>
+          ))}
+        </select>
+      </div>
+
+      <div className="watch-bar">
+        {filterwatch.slice(0, 8).map((item) => (
+          <div key={item.id} className="each-watch">
+
+            <Link to={`/smartwatch/${item.id}`}>
+              <img src={item.thumbnail} alt={item.title} />
+            </Link>
+
+            <div className="info">
+              <h3>{item.title}</h3>
+              <p>₹ {item.price}</p>
+            </div>
+
+            <p>{item.brand}</p>
+            <button onClick={ () => addToCart(item)}>ADD TO CART</button>
+
+          </div>
+        ))}
+      </div>
+
     </div>
-  </div>
-);
-
-
+  );
 };
 
 export default SmartWatch;

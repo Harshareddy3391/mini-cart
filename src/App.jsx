@@ -12,7 +12,8 @@ import Eachmobile from './componets/eachmobile';
 import Eachlaptop from "./componets/eachlaptop"
 import Eachwach from './componets/eachwach';
 import Eachelectronic from './componets/eachelectronic';
-import Eachbuds from "./componets/eachbuds"
+import Eachbuds from "./componets/eachbuds";
+import Cart from './componets/Cart';
 
 
  
@@ -25,7 +26,7 @@ import Eachbuds from "./componets/eachbuds"
          <Route path="/register" element = {<Registration/>}/>
          <Route path="/mobiles" element = {<Mobile/>}/>
          <Route path="/laptops" element = {<Laptops/>}/>
-         <Route path="/electronis" element = {<Electronics/>}/>
+         <Route path="/electronics" element = {<Electronics/>}/>
          <Route path="/waches" element = {<SmartWatch/>}/>
          <Route path="/login" element = {<Login/>}/>
            <Route path="/mobiles/:id" element={<Eachmobile/>}/>
@@ -33,6 +34,7 @@ import Eachbuds from "./componets/eachbuds"
            <Route path="/smartwatch/:id" element={<Eachwach/>}/> 
            <Route path="/electronics/:id" element={<Eachelectronic/>}/>
            <Route path="/earbuds/:id" element={<Eachbuds/>}/>
+           <Route path="/cart" element={<Cart />} />
           
 
        </Routes>
