@@ -7,7 +7,7 @@ import { CartProvider } from "./componets/CartContext";
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <BrowserRouter>  {/* ✅ Added */}
+    <BrowserRouter>  
       <CartProvider>
         <App />
       </CartProvider>

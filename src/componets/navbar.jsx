@@ -11,7 +11,7 @@ const Navbar = () => {
     <div>
       <div className='navsection'>
         <div className="title">
-          <h3>MINI CART</h3>
+           <Link to="/"><h3>MINI CART</h3></Link>
         </div>
         <div className="search">
           <input type="text" placeholder='Enter your product...' />
