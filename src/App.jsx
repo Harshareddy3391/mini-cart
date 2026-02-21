@@ -11,9 +11,10 @@ import Login from './pages/login';
 import Eachmobile from './componets/eachmobile';
 import Eachlaptop from "./componets/eachlaptop"
 import Eachwach from './componets/eachwach';
+
 import Eachelectronic from './componets/eachelectronic';
 import Eachbuds from "./componets/eachbuds";
-import Cart from './componets/Cart';
+import Cart from './componets/cart';
 
 
  
