@@ -35,7 +35,7 @@ const SmartWatch = () => {
 
       <h1 className="watch-name">Smart Watches</h1>
 
-      {/* 🔥 Brand Dropdown */}
+    
       <div className="filter-section">
         <select value={brand} onChange={(e) => setBrand(e.target.value)}>
           {brandnames.map((b, index) => (
